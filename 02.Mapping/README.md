@@ -7,13 +7,13 @@ bwa mem -R ref.fa SampleID.1.fq.gz SampleID.2.fq.gz | samtools sort -O bam -o Sa
 samtools index SampleID.sort.bam
 ```
 
-## step2: remove PCR duplicates with picard(http://broadinstitute.github.io/picard/)
+## step2: remove PCR duplicates with [picard](http://broadinstitute.github.io/picard/)
 ```
 java -jar picard.jar MarkDuplicates INPUT=SampleID.sort.bam OUTPUT=SampleID.rmdup.bam METRICS_FILE =SampleID.dup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT CREATE_INDEX=true
 ```
 
 ## step3: do local realignment of reads to enhance the alignments in the vicinity of indel polymorphisms 
-NB: GATK v3.6 
+NB: [GATK v3.6](https://software.broadinstitute.org/gatk/)
 ```
 # use the RealignerTargetCreator to identify regions where realignment was needed
 java -jar GenomeAnalysisTK.jar -R ref.fa -T RealignerTargetCreator -o SampleID.intervals -I SampleID.rmdup.bam 
