@@ -1,6 +1,7 @@
 # FastQtrimmer.pl
 ### Filter and Trim your Paired-end FastQ file
 
+
 As you get the Illumina sequencing data from a company like BGI/Novogene, first thing 
 you (probably) need to do is to do the sequnce quality check and filter the low quality reads.
 
