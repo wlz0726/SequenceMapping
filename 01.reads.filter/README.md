@@ -10,10 +10,12 @@ the adaptor before hand over you the data.
 
 FastQtrimmer.pl will trim and filtering Paired-end reads in gz format, and the following reads
 will be removed:
-  1) >=10% unidentified nucleotides (N)
-  2) with a phred quality <=7 for >65% of the read length
-  3) reads are trimmed if they had three consecutive bp with a phred quality of <=13, 
-     and discarded if they were shorter than 45 bp
+```
+  1)  >=10% unidentified nucleotides (N)
+  2)  with a phred quality <=7 for >65% of the read length
+  3)  reads are trimmed if they had three consecutive bp with a phred quality of <=13, 
+      and discarded if they were shorter than 45 bp
+```
 
 Example:
 Your have one Paired-end FastQ file named `SampleID.1.fq.gz` and  `SampleID.2.fq.gz` with phred33 quality system, 
