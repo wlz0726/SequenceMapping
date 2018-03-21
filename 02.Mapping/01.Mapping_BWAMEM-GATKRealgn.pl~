@@ -51,8 +51,8 @@ my $outdir="$0.out";
 open(O,"> $0.1.sh");
 open(RM,"> $0.2.removeTMPfiles.sh");
 foreach my $read1(@read1){
-    $read1 =~ /(.*\/(.*))_1.fq.gz/;
-    my $read2="$1\_2.fq.gz";
+    $read1 =~ /(.*\/(.*))_1.fastq.gz/;
+    my $read2="$1\_2.fastq.gz";
     my $id=$2;
     print O "$bwa mem -t 15 -R \'\@RG\\tID:$id\\tLB:$id\\tSM:$id\\tPL:Illumina\\tPU:Illumina\\tSM:$id\\t\' $ref $read1 $read2|$samtools sort -O bam -T $outdir/tmp/$id -o $outdir/$id.sort.bam; $samtools index $outdir/$id.sort.bam;  ";
     print RM "rm $outdir/$id.sort.bam $outdir/$id.sort.bam.bai;";
